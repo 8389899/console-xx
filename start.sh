@@ -42,3 +42,10 @@ function check_cf (){
 count2=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
 #echo \$count2
  if [ 0 == \$count2 ];then
+ echo "----- 检测到nginx未运行，重启应用...----- ."
+nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
+ else
+   echo " nginx is running......"
+fi
+}
+
