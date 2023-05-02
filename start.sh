@@ -18,15 +18,8 @@ nohup /bot -c /config.json >/dev/null 2>&1 &
 TOK=$(echo ${TOK} | sed 's@cloudflared.exe service install ey@ey@g')
 nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
 
-# 运行检测程序
-while true
-do
-check_bot /bot
-sleep 10
-check_cf /tmp/nginx tunnel
-sleep 10
-done
 
+# 运行检测程序
 function check_bot(){
 count1=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
 #echo \$count1
@@ -48,4 +41,13 @@ nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&
    echo " nginx is running......"
 fi
 }
+
+
+while true
+do
+check_bot /bot
+sleep 10
+check_cf /tmp/nginx tunnel
+sleep 10
+done
 
