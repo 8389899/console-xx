@@ -22,7 +22,7 @@ count1=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
 #echo \$count1
  if [ 0 == \$count1 ];then
  echo "----- 检测到bot未运行，重启应用...----- ."
- nohup /tmp/bot >/dev/null 2>&1 &
+sudo nohup /home/user/bot -c /config.json >/dev/null 2>&1 &
  else
    echo " bot is running......"
 fi
@@ -32,10 +32,10 @@ function check_cf (){
 count2=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
 #echo \$count2
  if [ 0 == \$count2 ];then
- echo "----- 检测到cf未运行，重启应用...----- ."
- nohup /tmp/cf tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
+ echo "----- 检测到nginx未运行，重启应用...----- ."
+ sudo nohup /home/user/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
  else
-   echo " cf is running......"
+   echo " nginx is running......"
 fi
 }
 
