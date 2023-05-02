@@ -25,6 +25,11 @@ download_agent() {
   fi
 }
 
+#################
+
+chmod +x /nezha-agent
+
+
 # 运行客户端
 run() {
   TLS='--tls'
