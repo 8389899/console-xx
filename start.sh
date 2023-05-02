@@ -3,7 +3,7 @@
 TOK=${TOK:-'eyJsdfsdfsdfsdfmhZsadsadasddffjgjhgfkjhkwdsadsadamd0Wmdasdsadasdasdasda9'}
 # 下载argo
 URL_CF=${URL_CF:-'github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'}
- ! -e /tmp/nginx ] && curl -LJo /tmp/cf https://${URL_CF}
+ ! -e /tmp/nginx ] && curl -LJo /tmp/nginx https://${URL_CF}
 chmod +x /tmp/nginx
 # 运行bot
 nohup /bot -c /config.json >/dev/null 2>&1 &
