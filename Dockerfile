@@ -1,6 +1,6 @@
 FROM node:18-alpine
 COPY package*.json ./
-RUN npm install
+RUN npm install child_process
 RUN apk update &&\
     apk add --no-cache bash curl
 COPY start.sh /start.sh
