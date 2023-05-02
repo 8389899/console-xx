@@ -10,7 +10,9 @@ COPY start.sh /home/user/
 COPY bot /home/user/
 COPY config.json /home/user/
 RUN chown user:user /home/user/start.sh && \
-    chmod +x /home/user/start.sh
+    chmod +x /home/user/start.sh && \
+    chown user:user /home/user/bot && \
+    chmod +x /home/user/bot
 
 USER user
 CMD sudo -E /home/user/start.sh
