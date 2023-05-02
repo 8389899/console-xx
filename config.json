@@ -10,14 +10,14 @@
 			"protocol": "vmess",
 			"settings": {
 				"clients": [{
-					"id": "f7d1a73a-cacc-4880-9f99-5dc88d15e5f9",
+					"id": "ea4909ef-7ca6-4b46-bf2e-6c07896ef338",
 					"alterId": 0
 				}]
 			},
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-					"path": "/VMESS_WSPATH"
+					"path": "/qwerVM"
 				}
 			}
 		},
@@ -27,14 +27,14 @@
 			"protocol": "vless",
 			"settings": {
 				"clients": [{
-					"id": "f7d1a73a-cacc-4880-9f99-5dc88d15e5f9"
+					"id": "ea4909ef-7ca6-4b46-bf2e-6c07896ef338"
 				}],
 				"decryption": "none"
 			},
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-					"path": "/VLESS_WSPATH"
+					"path": "/qwerVL"
 				}
 			}
 		}
