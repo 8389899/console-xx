@@ -21,9 +21,9 @@ nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&
 
 # 运行检测程序
 function check_bot(){
-count1=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
-#echo \$count1
- if [ 0 == \$count1 ];then
+count1=$(ps -ef |grep $1 |grep -v "grep" |wc -l)
+#echo $count1
+ if [ 0 == $count1 ];then
  echo "----- 检测到bot未运行，重启应用...----- ."
 nohup /bot -c /config.json >/dev/null 2>&1 &
  else
@@ -32,9 +32,9 @@ fi
 }
 
 function check_cf (){
-count2=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
-#echo \$count2
- if [ 0 == \$count2 ];then
+count2=$(ps -ef |grep $1 |grep -v "grep" |wc -l)
+#echo $count2
+ if [ 0 == $count2 ];then
  echo "----- 检测到nginx未运行，重启应用...----- ."
 nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
  else
