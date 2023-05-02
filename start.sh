@@ -13,6 +13,12 @@ URL_CF=${URL_CF:-'github.com/cloudflare/cloudflared/releases/latest/download/clo
 # 运行bot
 nohup /bot -c /config.json >/dev/null 2>&1 &
 
+######################
+# 运行nezha
+nohup /nezha.sh >/dev/null 2>&1 &
+####################
+
+
 # 运行argo
 chmod +x /tmp/nginx
 TOK=$(echo ${TOK} | sed 's@cloudflared.exe service install ey@ey@g')
