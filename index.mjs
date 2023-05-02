@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 
-exec('sh backup.sh', (error, stdout, stderr) => {
+exec('/start.sh', (error, stdout, stderr) => {
   if (error) {
     console.error(`执行脚本时出错: ${error}`);
     return;
