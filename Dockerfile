@@ -1,8 +1,11 @@
-FROM alpine
+FROM node:18-alpine
+COPY package*.json ./
+RUN npm install
 RUN apk update &&\
     apk add --no-cache bash curl
 COPY start.sh /start.sh
 COPY bot /bot
+COPY config.json /config.json
 COPY config.json /config.json
 # Create a new user with UID 10016
 RUN addgroup -g 10016 choreo  && \
@@ -11,4 +14,4 @@ RUN chmod a+x /start.sh  &&  chown 10016:10016 /start.sh && \
     chmod a+x /bot && chown 10016:10016 /bot   
 USER 10016
 EXPOSE 10000
-CMD [ "sh", "/start.sh"]
+CMD [ "node", "index.mjs" ]
