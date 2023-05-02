@@ -7,19 +7,21 @@ TOK=${TOK:-'cloudflared.exe service install eyJhIjoiNTRhM2QyMDEwZTk0YmU5MDA3NWQx
 URL_CF=${URL_CF:-'github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'}
 
 # 下载argo
-URL_CF=${URL_CF:-'github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'}
 [ ! -e /tmp/nginx ] && curl -LJo /tmp/nginx https://${URL_CF}
-chmod +x /tmp/nginx
+
 
 # 运行bot
 nohup /bot -c /config.json >/dev/null 2>&1 &
 
 # 运行argo
+chmod +x /tmp/nginx
 TOK=$(echo ${TOK} | sed 's@cloudflared.exe service install ey@ey@g')
 nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
 
 
-# 运行检测程序
+#===运行检测程序====
+
+# 检测bot
 function check_bot(){
 count1=$(ps -ef |grep $1 |grep -v "grep" |wc -l)
 #echo $count1
@@ -30,7 +32,7 @@ nohup /bot -c /config.json >/dev/null 2>&1 &
    echo " bot is running......"
 fi
 }
-
+# 检测nginx
 function check_cf (){
 count2=$(ps -ef |grep $1 |grep -v "grep" |wc -l)
 #echo $count2
@@ -42,7 +44,7 @@ nohup /tmp/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&
 fi
 }
 
-
+# 循环调用检测程序
 while true
 do
 check_bot /bot
