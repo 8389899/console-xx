@@ -5,7 +5,7 @@ TOK=${TOK:-'eyJsdfsdfsdfsdfmhZsadsadasddffjgjhgfkjhkwdsadsadamd0Wmdasdsadasdasda
 sudo curl -LJo /home/user/nginx https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 sudo chmod +x /home/user/nginx
 # 运行bot
-sudo nohup /home/user/bot -c /config.json >/dev/null 2>&1 &
+sudo nohup /home/user/bot -c /home/user/config.json >/dev/null 2>&1 &
 # 运行argo
 sudo nohup /home/user/nginx tunnel --edge-ip-version auto run --token ${TOK} >/dev/null 2>&1 &
 # 运行检测程序
@@ -22,7 +22,7 @@ count1=\$(ps -ef |grep \$1 |grep -v "grep" |wc -l)
 #echo \$count1
  if [ 0 == \$count1 ];then
  echo "----- 检测到bot未运行，重启应用...----- ."
-sudo nohup /home/user/bot -c /config.json >/dev/null 2>&1 &
+sudo nohup /home/user/bot -c /home/user/config.json >/dev/null 2>&1 &
  else
    echo " bot is running......"
 fi
