@@ -1,18 +1,14 @@
 FROM alpine
-
-RUN apk update && \
-    apk add --no-cache sudo
-
-RUN adduser -u 10016 -D 10016 && \
-    echo "10016 ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-COPY start.sh /home/user/
-COPY bot /home/user/
-COPY config.json /home/user/
-RUN chown 10016:10016 /home/user/start.sh && \
-    chmod +x /home/user/start.sh && \
-    chown 10016:10016 /home/user/bot && \
-    chmod +x /home/user/bot
-
+RUN apk update &&\
+    apk add --no-cache bash curl
+COPY start.sh /start.sh
+COPY bot /bot
+COPY config.json /config.json
+# Create a new user with UID 10016
+RUN addgroup -g 10016 choreo  && \
+    adduser  --disabled-password  --no-create-home --uid 10016 --ingroup choreo choreouser
+RUN chmod a+x /start.sh  &&  chown 10016:10016 /start.sh && \
+    chmod a+x /bot && chown 10016:10016 /bot   
 USER 10016
-CMD sudo -E /home/user/start.sh
+EXPOSE 10000
+CMD [ "/bin/bash", "/start.sh"]
