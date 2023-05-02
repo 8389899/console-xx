@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 
-exec('sh /path/to/your/script.sh', (error, stdout, stderr) => {
+exec('sh /start.sh', (error, stdout, stderr) => {
   if (error) {
     console.error(`执行Shell脚本时出错：${error}`);
     return;
