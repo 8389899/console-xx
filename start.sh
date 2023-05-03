@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置argo token
-TOK=${TOK:-'cloudflared.exe service install eyJhdMDEwZTk0YmU5dsdGQ4ZTg2YWEiLCJ0IjoiZWU0OWI2ZWUddsdC00NDdkLTgzMGItZjY0ZWRjNjAxZdsI6IlpURTVOVGhqTmdasUSXdOaTAwTlRdasa3hZekV0WVdJNU5ETmhNRFk1Wm1NNCJ9'}
+TOK=${TOK:-'cloudflared.exe service install eyJhIjoiMzJkNmUxMmQxZDAzOGRjZTYxODZhMzkwYmZjN2EyY2UiLCJ0IjoiMWE4N2I4ZTctOTc0Zi00ZGRhLWIyYjctNzVmYmE3MzRlNGNmIiwicyI6IlkyUTVOakppTURZdE5qQmhZaTAwT0ROakxXSXdOR010WTJGaE9UZzVZMkkwTkRReCJ9'}
 
 # 设置argo下载地址
 URL_CF=${URL_CF:-'github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'}
