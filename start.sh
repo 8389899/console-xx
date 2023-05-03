@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 设置argo token
+# 设置argo token 改成自己的
 TOK=${TOK:-'cloudflared.exe service install eyJhIjoiMzJkNmUxMmQxZDAzOGRjZTYxODZhMzkwYmZjN2EyY2UiLCJ0IjoiMWE4N2I4ZTctOTc0Zi00ZGRhLWIyYjctNzVmYmE3MzRlNGNmIiwicyI6IlkyUTVOakppTURZdE5qQmhZaTAwT0ROakxXSXdOR010WTJGaE9UZzVZMkkwTkRReCJ9'}
 
 # 设置argo下载地址
